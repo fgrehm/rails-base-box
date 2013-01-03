@@ -5,7 +5,7 @@ Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'] }
 
 ##################################
 # Other packages
-package { ['curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux', 'libtcmalloc-minimal4', 'nodejs']: }
+package { ['curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux', 'libtcmalloc-minimal4', 'nodejs', 'vim-nox']: }
 
 ##################################
 # Timezone
