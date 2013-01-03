@@ -9,7 +9,7 @@ task :rebuild do
 
   # FROM: http://chrisyallop.com/2012/04/customising-a-vagrant-box-with-veewee/
   # Zero out the free space to save space in the final image
-  sh 'sudo dd if=/dev/zero of=/EMPTY bs=1M && sudo rm -f /EMPTY'
+  sh 'vagrant ssh -c "sudo dd if=/dev/zero of=/EMPTY bs=1M && sudo rm -f /EMPTY"'
 
   sh 'vagrant package --base quantal64'
 end
