@@ -2,4 +2,4 @@
 /.librarian
 /modules
 /.vagrant
-/package.box
+/quantal-64-rails-*.box
