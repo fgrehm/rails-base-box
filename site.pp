@@ -4,8 +4,12 @@ Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'] }
 #exec { 'apt-get update': }
 
 ##################################
-# Other packages
-package { ['curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux', 'libtcmalloc-minimal4', 'nodejs', 'vim-nox']: }
+# Misc packages
+package { [
+  'curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux',
+  'libtcmalloc-minimal4', 'nodejs', 'vim-nox', 'libv8-dev', 'libsqlite3-dev',
+  'libqt4-dev']:
+}
 
 ##################################
 # Timezone
