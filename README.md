@@ -18,5 +18,5 @@ I keep the latest release on a public folder at my dropbox account, feel free to
 use it:
 
 ```terminal
-vagrant box add quantal64-rails-2013-01-03 http://dl.dropbox.com/u/13510779/quantal64-rails-2013-01-23.box
+vagrant box add quantal64-rails-2013-01-23 http://dl.dropbox.com/u/13510779/quantal64-rails-2013-01-23.box
 ```
