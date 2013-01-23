@@ -19,6 +19,14 @@ file {
 }
 
 ##################################
+# Heroku Toolbelt
+
+exec {
+  'wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh':
+    creates => '/usr/local/heroku/bin/heroku'
+}
+
+##################################
 # RUBY
 
 file {
