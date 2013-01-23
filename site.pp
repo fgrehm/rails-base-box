@@ -81,6 +81,12 @@ exec { 'gem regenerate_binstubs"':
   require => Rbenv::Gem['rubygems-bundler']
 }
 
+file {
+  "/home/vagrant/.rbenv/versions/1.9.3-p327":
+    ensure  => "/home/vagrant/.rbenv/versions/1.9.3-p327-falcon",
+    require => Rbenv::Compile['1.9.3-p327-falcon'];
+}
+
 ##################################
 # PhantomJS
 exec { 'install-phantomjs':
