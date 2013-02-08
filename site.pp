@@ -36,6 +36,41 @@ file {
 }
 
 ##################################
+# Common ground for completions
+file { '/home/vagrant/completion_scripts':
+  ensure => directory,
+  owner  => 'vagrant',
+  group  => 'vagrant'
+}
+
+##################################
+# Ruby / Rails goodies
+
+wget::fetch { "rake-completion":
+  source      => "https://raw.github.com/calebthompson/dotfiles/master/rake/completion.sh",
+  destination => "/home/vagrant/completion_scripts/rake",
+  timeout     => 0,
+  verbose     => false,
+  require     => File['/home/vagrant/completion_scripts']
+}
+
+line {
+  'source-rake-completion':
+    file    => "/home/vagrant/.bashrc",
+    line    => "source /home/vagrant/completion_scripts/rake",
+    require => Wget::Fetch['rake-completion'];
+
+  'migrate-alias':
+    file => '/home/vagrant/.bashrc',
+    line => 'alias migrate="rake db:migrate && RAILS_ENV=test rake db:migrate"';
+
+  'rollback-alias':
+    file => '/home/vagrant/.bashrc',
+    line => 'alias rollback="rake db:rollback && RAILS_ENV=test rake db:rollback"';
+}
+
+
+##################################
 # NodeJS
 include nodejs
 
