@@ -9,7 +9,7 @@ mod 'maestrodev/wget'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/nodejs'
 
-mod 'rbenv',      :git => 'https://github.com/alup/puppet-rbenv.git'
+mod 'rbenv',      :git => 'https://github.com/fgrehm/puppet-rbenv.git', :ref => 'fix-configure-opts'
 mod 'postgresql', :git => 'https://github.com/akumria/puppet-postgresql.git'
 mod 'memcached',  :git => 'https://github.com/saz/puppet-memcached.git'
 mod 'redis',      :git => 'https://github.com/thomasvandoren/puppet-redis.git'

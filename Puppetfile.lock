@@ -20,9 +20,9 @@ GIT
       puppetlabs/stdlib (>= 2.3.1)
 
 GIT
-  remote: https://github.com/alup/puppet-rbenv.git
-  ref: master
-  sha: d54b871ae3270a12692008782e8dcd32417a3350
+  remote: https://github.com/fgrehm/puppet-rbenv.git
+  ref: fix-configure-opts
+  sha: e3132c2bc11e8a1df3f513699d39a1422331964a
   specs:
     rbenv (1.1.0)
 
