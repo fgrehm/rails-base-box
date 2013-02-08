@@ -4,9 +4,9 @@ task :rebuild do
     sh 'librarian-puppet install'
   end
   sh "vagrant destroy -f"
-  sh 'vagrant up'
+  sh 'vagrant up --no-provision'
   sh 'vagrant ssh -c "sudo apt-get update && sudo apt-get upgrade -y"'
-  sh 'vagrant reload' # To ensure the VM can boot properly after the upgrade
+  sh 'vagrant reload'
 
   # FROM: https://gist.github.com/3775253
   sh 'vagrant ssh -c "sudo /vagrant/purge.sh"'
