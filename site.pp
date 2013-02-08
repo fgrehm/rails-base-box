@@ -3,11 +3,28 @@ Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'] }
 
 #exec { 'apt-get update': }
 
+# From http://projects.puppetlabs.com/projects/1/wiki/Simple_Text_Patterns
+define line($file, $line, $ensure = 'present') {
+  case $ensure {
+    default : { err ( "unknown ensure value ${ensure}" ) }
+    present: {
+      exec { "/bin/echo '${line}' >> '${file}'":
+        unless => "/bin/grep -qFx '${line}' '${file}'"
+      }
+    }
+    absent: {
+      exec { "/bin/grep -vFx '${line}' '${file}' | /usr/bin/tee '${file}' > /dev/null 2>&1":
+        onlyif => "/bin/grep -qFx '${line}' '${file}'"
+      }
+    }
+  }
+}
+
 ##################################
 # Misc packages
 package { [
   'curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux',
-  'libtcmalloc-minimal4', 'nodejs', 'vim-nox', 'libv8-dev', 'libsqlite3-dev',
+  'libtcmalloc-minimal4', 'vim-nox', 'libv8-dev', 'libsqlite3-dev',
   'libqt4-dev', 'graphviz']:
 }
 
@@ -19,8 +36,16 @@ file {
 }
 
 ##################################
-# Heroku Toolbelt
+# NodeJS
+include nodejs
 
+package { ['coffee-script', 'istanbul']:
+  ensure   => present,
+  provider => 'npm',
+}
+
+##################################
+# Heroku Toolbelt
 exec {
   'wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh':
     creates => '/usr/local/heroku/bin/heroku'
