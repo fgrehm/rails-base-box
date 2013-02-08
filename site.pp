@@ -77,6 +77,7 @@ include nodejs
 package { ['coffee-script', 'istanbul']:
   ensure   => present,
   provider => 'npm',
+  require  => Class['nodejs']
 }
 
 ##################################
