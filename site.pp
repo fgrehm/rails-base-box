@@ -182,5 +182,6 @@ exec {
 class { 'redis': redis_max_memory => '10mb' }
 exec  {
   'update-rc.d -f redis_6379 defaults 98 02':
-    creates => '/etc/rc0.d/K02redis_6379'
+    creates => '/etc/rc0.d/K02redis_6379',
+    require => Class['redis']
 }
