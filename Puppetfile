@@ -7,6 +7,7 @@ mod 'puppetlabs/stdlib'
 mod 'puppetlabs/firewall'
 mod 'maestrodev/wget'
 mod 'puppetlabs/gcc'
+mod 'puppetlabs/nodejs'
 
 mod 'rbenv',      :git => 'https://github.com/alup/puppet-rbenv.git'
 mod 'postgresql', :git => 'https://github.com/akumria/puppet-postgresql.git'
