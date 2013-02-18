@@ -5,8 +5,9 @@ Vagrant::Config.run do |config|
   config.vm.box     = "quantal64"
   config.vm.box_url = "https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box"
 
-  unless defined? VagrantVbguest::Config
-    VagrantVbguest::Config.auto_update = false
+  if defined? VagrantVbguest::Config
+    config.vbguest.auto_update = false
+    config.vbguest.no_remote   = true
   end
 
   config.vm.provision :puppet do |puppet|
