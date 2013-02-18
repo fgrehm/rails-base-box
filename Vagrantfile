@@ -5,6 +5,10 @@ Vagrant::Config.run do |config|
   config.vm.box     = "quantal64"
   config.vm.box_url = "https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box"
 
+  unless defined? VagrantVbguest::Config
+    VagrantVbguest::Config.auto_update = false
+  end
+
   config.vm.provision :puppet do |puppet|
     puppet.module_path    = "modules"
     puppet.manifests_path = "."
