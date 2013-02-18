@@ -9,8 +9,8 @@ gem install librarian-puppet
 rake rebuild
 ```
 
-This will output a box named like `quantal64-rails-2013-02-08.box` that you can
-add to vagrant with `vagrant box add quantal64-rails-2013-02-08 /path/to/quantal64-rails-2013-02-08.box`.
+This will output a box named like `quantal64-rails-2013-02-18.box` that you can
+add to vagrant with `vagrant box add quantal64-rails-2013-02-18 /path/to/quantal64-rails-2013-02-18.box`.
 
 Please note that it takes ~20 minutes to rebuild the VM on my laptop using
 a 15mb connection, so go grab a coffee while it runs ;)
@@ -19,5 +19,5 @@ I keep the latest release on a public folder at my dropbox account, feel free to
 use it:
 
 ```terminal
-vagrant box add quantal64-rails-2013-02-08 http://dl.dropbox.com/u/13510779/quantal64-rails-2013-02-08.box
+vagrant box add quantal64-rails-2013-02-18 http://dl.dropbox.com/u/13510779/quantal64-rails-2013-02-18.box
 ```
