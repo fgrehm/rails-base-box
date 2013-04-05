@@ -90,6 +90,8 @@ exec {
 ##################################
 # RUBY
 
+$default_ruby = '2.0.0-p0'
+
 file {
   '/home/vagrant/.gemrc':
     content => "
@@ -113,39 +115,22 @@ rbenv::plugin::rbenvvars { 'vagrant':
   require => Rbenv::Install['vagrant']
 }
 
-file {
-  '/home/vagrant/.rbenv/vars':
-    content => "
-RUBY_GC_MALLOC_LIMIT=60000000
-RUBY_FREE_MIN=200000
-LD_PRELOAD=/usr/lib/libtcmalloc_minimal.so.4.1.0
-",
-    require => Rbenv::Install['vagrant']
-}
-
-rbenv::compile { '1.9.3-p327-falcon':
+rbenv::compile { $default_ruby:
   user   => 'vagrant',
-  source => 'https://raw.github.com/gist/1688857/2-1.9.3-p327-patched.sh',
   global => true
 }
 
-rbenv::gem { ['foreman', 'rubygems-bundler', 'tmuxinator']:
+rbenv::gem { ['foreman', 'rubygems-bundler', 'tmuxinator', 'lol_dba']:
   user   => 'vagrant',
-  ruby   => '1.9.3-p327-falcon',
-  require => Rbenv::Compile['1.9.3-p327-falcon']
+  ruby   => $default_ruby,
+  require => Rbenv::Compile[$default_ruby]
 }
 
 exec { 'gem regenerate_binstubs"':
   unless  => 'gem list | grep -q rubygems-bundler',
-  path    => "/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/versions/1.9.3-p327-falcon/bin:/bin:/usr/bin",
+  path    => "/home/vagrant/.rbenv/bin:/home/vagrant/.rbenv/versions/${default_ruby}/bin:/bin:/usr/bin",
   user    => 'vagrant',
   require => Rbenv::Gem['rubygems-bundler']
-}
-
-file {
-  "/home/vagrant/.rbenv/versions/1.9.3-p327":
-    ensure  => "/home/vagrant/.rbenv/versions/1.9.3-p327-falcon",
-    require => Rbenv::Compile['1.9.3-p327-falcon'];
 }
 
 ##################################
