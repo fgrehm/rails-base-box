@@ -25,7 +25,7 @@ define line($file, $line, $ensure = 'present') {
 package { [
   'curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux',
   'libtcmalloc-minimal4', 'vim-nox', 'libv8-dev', 'libsqlite3-dev',
-  'libqt4-dev', 'graphviz']:
+  'graphviz']:
 }
 
 ##################################
