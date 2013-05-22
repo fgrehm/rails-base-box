@@ -29,12 +29,23 @@ This will output a box file to the project root that you can add to vagrant with
 Please note that it takes ~20 minutes to rebuild the VM on my laptop using
 a 15mb connection, so go grab a coffee while it runs ;)
 
+## Pre packaged boxes
+
 I keep the latest releases on a public folder at my dropbox account, feel free to
 use it:
 
-```terminal
-# For VirtualBox:
-vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/quantal64-rails-2013-02-18.box
-# For LXC:
-vagrant box add quantal64-rails SOON
+### VirtualBox
+
+Based on https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box
+
+```
+vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/virtualbox-quantal64-rails-2013-05-22.box
+```
+
+### [LXC](https://github.com/fgrehm/vagrant-lxc)
+
+Based on http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-05-08.box
+
+```
+vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-05-22.box
 ```
