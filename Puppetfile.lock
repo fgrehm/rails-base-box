@@ -6,9 +6,6 @@ FORGE
       puppetlabs/stdlib (>= 2.2.1)
     puppetlabs/firewall (0.0.4)
     puppetlabs/gcc (0.0.3)
-    puppetlabs/nodejs (0.2.1)
-      puppetlabs/apt (>= 0.0.3)
-      puppetlabs/stdlib (>= 2.0.0)
     puppetlabs/stdlib (3.2.0)
 
 GIT
@@ -25,6 +22,15 @@ GIT
   sha: e3132c2bc11e8a1df3f513699d39a1422331964a
   specs:
     rbenv (1.1.0)
+
+GIT
+  remote: https://github.com/fgrehm/puppetlabs-nodejs.git
+  ref: master
+  sha: d7159fecbe7a8649dcf638676bd1516137050b85
+  specs:
+    nodejs (0.2.1)
+      puppetlabs/apt (>= 0.0.3)
+      puppetlabs/stdlib (>= 2.0.0)
 
 GIT
   remote: https://github.com/saz/puppet-memcached.git
@@ -45,10 +51,10 @@ GIT
 DEPENDENCIES
   maestrodev/wget (>= 0)
   memcached (>= 0)
+  nodejs (>= 0)
   postgresql (>= 0)
   puppetlabs/firewall (>= 0)
   puppetlabs/gcc (>= 0)
-  puppetlabs/nodejs (>= 0)
   puppetlabs/stdlib (>= 0)
   rbenv (>= 0)
   redis (>= 0)
