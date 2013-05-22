@@ -90,7 +90,7 @@ exec {
 ##################################
 # RUBY
 
-$default_ruby = '2.0.0-p0'
+$default_ruby = '2.0.0-p195'
 
 file {
   '/home/vagrant/.gemrc':
