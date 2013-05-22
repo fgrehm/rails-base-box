@@ -1,7 +1,4 @@
 Exec { path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'] }
-#Exec['apt-get update'] -> Package <| |>
-
-#exec { 'apt-get update': }
 
 # From http://projects.puppetlabs.com/projects/1/wiki/Simple_Text_Patterns
 define line($file, $line, $ensure = 'present') {
@@ -26,13 +23,6 @@ package { [
   'curl', 'imagemagick', 'htop', 'exuberant-ctags', 'tmux',
   'libtcmalloc-minimal4', 'vim-nox', 'libv8-dev', 'libsqlite3-dev',
   'graphviz']:
-}
-
-##################################
-# Timezone
-file {
-  "/etc/localtime": ensure => "/usr/share/zoneinfo/Brazil/East";
-  "/etc/timezone":  content => "America/Sao_Paulo\n"
 }
 
 ##################################
