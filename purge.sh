@@ -11,8 +11,8 @@ aptitude -y purge python-twisted-bin libdbus-glib-1-2 python-pexpect python-pycu
 apt-get purge -y linux-image-3.0.0-12-generic-pae
 
 # Remove APT cache
-apt-get clean -y
-apt-get autoclean -y
+# apt-get clean -y
+# apt-get autoclean -y
 
 # Zero free space to aid VM compression
 dd if=/dev/zero of=/EMPTY bs=1M
