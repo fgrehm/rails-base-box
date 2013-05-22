@@ -16,12 +16,12 @@ task :rebuild do
   sh 'vagrant ssh -c "sudo apt-get update && sudo apt-get upgrade -y"'
   sh 'vagrant reload'
 
+  sh 'vagrant ssh -c "rm /home/vagrant/.rbenv/cache/*"'
+
   unless provider == 'lxc'
     # FROM: https://gist.github.com/3775253
     sh 'vagrant ssh -c "sudo /vagrant/purge.sh"'
   end
-
-  sh 'vagrant ssh -c "rm /home/vagrant/.rbenv/cache/*"'
 
   # Ensure vagrant-cachier symlinks gets removed
   sh 'vagrant halt'
