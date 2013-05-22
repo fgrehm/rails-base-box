@@ -7,6 +7,9 @@ Vagrant.configure('2') do |config|
   config.vm.network :private_network, ip: "192.168.50.33"
   config.vm.network :forwarded_port, guest: 8080, host: 8080
 
+  config.cache.auto_detect = true
+  config.cache.scope       = :machine
+
   config.vm.provider :virtualbox do |vb, vb_config|
     vb.customize [ "modifyvm", :id, "--memory", 1024, "--cpus", "2" ]
     vb_config.vm.box_url = "https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box"

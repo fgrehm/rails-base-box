@@ -3,6 +3,11 @@ task :rebuild do
   unless Dir.exists?('./modules')
     sh 'librarian-puppet install'
   end
+
+  unless `vagrant plugin list`.include 'vagrant-cachier'
+    sh 'vagrant plugin install vagrant-cachier'
+  end
+
   sh "vagrant destroy -f"
 
   provider = ENV['PROVIDER'] || ENV['VAGRANT_DEFAULT_PROVIDER']
@@ -15,7 +20,6 @@ task :rebuild do
     # FROM: https://gist.github.com/3775253
     sh 'vagrant ssh -c "sudo /vagrant/purge.sh"'
   end
-
 
   provider = provider ? "#{provider}-" : ''
   require 'time'
