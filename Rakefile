@@ -4,7 +4,7 @@ task :rebuild do
     sh 'librarian-puppet install'
   end
 
-  unless `vagrant plugin list`.include 'vagrant-cachier'
+  unless `vagrant plugin list`.include? 'vagrant-cachier'
     sh 'vagrant plugin install vagrant-cachier'
   end
 
