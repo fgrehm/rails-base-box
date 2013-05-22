@@ -59,7 +59,6 @@ line {
     line => 'alias rollback="rake db:rollback && RAILS_ENV=test rake db:rollback"';
 }
 
-
 ##################################
 # NodeJS
 include nodejs
@@ -147,9 +146,22 @@ class { 'postgresql::server':
 }
 exec {
   'vagrant-postgres-user':
-    command => 'sudo -u postgres createuser --superuser vagrant 2>/dev/null',
-    unless  => 'sudo -u postgres -- psql -c "\du" 2>/dev/null | grep -q vagrant',
+    command => 'createuser --superuser vagrant 2>/dev/null',
+    unless  => 'psql -c "\du" 2>/dev/null | grep -q vagrant',
+    user    => 'postgres',
     require => Class['postgresql::server'];
+
+  # Based on https://gist.github.com/ffmike/877447
+  'fix-psql-default-encoding':
+    command => 'psql postgres -c "update pg_database set datallowconn = TRUE where datname = \'template0\';"
+                psql template0 -c "update pg_database set datistemplate = FALSE where datname = \'template1\';"
+                psql template0 -c "drop database template1;"
+                psql template0 -c "create database template1 with template = template0 encoding = \'UTF8\';"
+                psql template0 -c "update pg_database set datistemplate = TRUE where datname = \'template1\';"
+                psql template1 -c "update pg_database set datallowconn = FALSE where datname = \'template0\';"',
+    unless  => "psql template1 -c 'SHOW SERVER_ENCODING' | grep -q UTF8",
+    user    => 'postgres',
+    require => Class['postgresql::server']
 }
 
 ##################################
