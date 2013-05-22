@@ -23,6 +23,9 @@ task :rebuild do
 
   sh 'vagrant ssh -c "rm /home/vagrant/.rbenv/cache/*"'
 
+  # Ensure vagrant-cachier symlinks gets removed
+  sh 'vagrant halt'
+
   provider = provider ? "#{provider}-" : ''
   require 'time'
   box_file_name = "#{provider}quantal64-rails-#{Date.today}.box"
