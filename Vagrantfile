@@ -5,7 +5,6 @@ Vagrant.configure('2') do |config|
   config.vm.box = "quantal64"
 
   config.vm.network :private_network, ip: "192.168.50.33"
-  config.vm.network :forwarded_port, guest: 8080, host: 8080
 
   config.cache.auto_detect = true
   config.cache.scope       = :machine
