@@ -45,8 +45,8 @@ vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/virtualbox-quan
 
 ### [LXC](https://github.com/fgrehm/vagrant-lxc)
 
-Based on http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-05-08.box
+Based on http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-07-08.box
 
 ```
-vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-05-22.box
+vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-07-08.box
 ```

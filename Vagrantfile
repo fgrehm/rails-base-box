@@ -15,7 +15,7 @@ Vagrant.configure('2') do |config|
   end
 
   config.vm.provider :lxc do |lxc, lxc_config|
-    lxc_config.vm.box_url = "http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-05-08.box"
+    lxc_config.vm.box_url = "http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-07-08.box"
   end
 
   config.vm.provision :puppet do |puppet|
