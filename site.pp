@@ -172,3 +172,13 @@ exec  {
     creates => '/etc/rc0.d/K02redis_6379',
     require => Class['redis']
 }
+
+##################################
+# ElasticSearch
+
+package { 'openjdk-7-jre-headless': }
+exec { 'install-elasticsearch':
+  command => 'wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.0.deb -O /tmp/elasticsearch.deb -q &&
+              dpkg -i /tmp/elasticsearch.deb',
+  unless  => 'dpkg -s elasticsearch 2>/dev/null > /dev/null'
+}
