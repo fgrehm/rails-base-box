@@ -6,6 +6,7 @@ Features:
 * [rubygems-bundler](https://github.com/mpapis/rubygems-bundler)
 * [Memcached](http://memcached.org/)
 * [PostgreSQL](http://www.postgresql.org/) 9.1
+* [ElasticSearch](http://www.elasticsearch.org/)
 * [Redis](http://redis.io/)
 * [Node.js](http://nodejs.org/) (for the asset pipeline)
 * [heroku toolbelt](https://toolbelt.heroku.com/)
@@ -32,21 +33,9 @@ a 15mb connection, so go grab a coffee while it runs ;)
 
 ## Pre packaged boxes
 
-I keep the latest releases on a public folder at my dropbox account, feel free to
-use it:
-
-### VirtualBox
-
-Based on https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box
+I keep the latest [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) version
+of the box on a public folder at my dropbox account, feel free to use it:
 
 ```
-vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/virtualbox-quantal64-rails-2013-05-22.box
-```
-
-### [LXC](https://github.com/fgrehm/vagrant-lxc)
-
-Based on http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-07-08.box
-
-```
-vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-07-08.box
+vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-07-13.box
 ```
