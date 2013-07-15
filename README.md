@@ -33,9 +33,10 @@ a 15mb connection, so go grab a coffee while it runs ;)
 
 ## Pre packaged boxes
 
-I keep the latest [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) version
-of the box on a public folder at my dropbox account, feel free to use it:
+I keep the latest [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) and VirtualBox
+versions of the box on a public folder at my dropbox account, feel free to use it:
 
 ```
 vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/lxc-quantal64-rails-2013-07-13.box
+vagrant box add quantal64-rails http://dl.dropbox.com/u/13510779/virtualbox-quantal64-rails-2013-07-15.box
 ```
