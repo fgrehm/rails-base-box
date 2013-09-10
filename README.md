@@ -2,10 +2,9 @@
 
 Features:
 
-* [rbenv](https://github.com/sstephenson/rbenv/) + Ruby 2.0.0-p195
-* [rubygems-bundler](https://github.com/mpapis/rubygems-bundler)
+* [RVM](https://github.com/wayneeseguin/rvm) + Ruby 2.0.0-p247
 * [Memcached](http://memcached.org/)
-* [PostgreSQL](http://www.postgresql.org/) 9.1
+* [PostgreSQL](http://www.postgresql.org/)
 * [ElasticSearch](http://www.elasticsearch.org/)
 * [Redis](http://redis.io/)
 * [Node.js](http://nodejs.org/) (for the asset pipeline)
