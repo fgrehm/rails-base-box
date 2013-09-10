@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure('2') do |config|
-  config.vm.box = "quantal64"
+  config.vm.box = "raring64"
 
   config.vm.network :private_network, ip: "192.168.50.33"
 
@@ -16,6 +16,22 @@ Vagrant.configure('2') do |config|
 
   config.vm.provider :lxc do |lxc, lxc_config|
     lxc_config.vm.box_url = "http://dl.dropbox.com/u/13510779/lxc-quantal-amd64-2013-07-12.box"
+    lxc.customize 'aa_profile', 'unconfined'
+  end
+
+  # Required to boot nested containers
+  config.vm.provision :shell, inline: %[
+    if ! [ -f /etc/default/lxc ]; then
+      cat <<STR > /etc/default/lxc
+LXC_AUTO="false"
+USE_LXC_BRIDGE="false"
+STR
+    fi
+  ]
+
+  config.vm.provision :ventriloquist do |env|
+    env.services  << %w( pg elasticsearch memcached redis )
+    env.platforms << %w( ruby phantomjs nodejs )
   end
 
   config.vm.provision :puppet do |puppet|

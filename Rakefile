@@ -4,6 +4,9 @@ task :rebuild do
   unless `vagrant plugin list`.include? 'vagrant-cachier'
     sh 'vagrant plugin install vagrant-cachier'
   end
+  unless `vagrant plugin list`.include? 'ventriloquist'
+    sh 'vagrant plugin install ventriloquist'
+  end
 
   sh "vagrant destroy -f"
 
@@ -11,9 +14,7 @@ task :rebuild do
   extra    = provider ? "--provider=#{provider}" : ''
   sh "vagrant up --no-provision #{extra}"
   sh 'vagrant ssh -c "sudo apt-get update && sudo apt-get upgrade -y"'
-  sh 'vagrant reload'
-
-  sh 'vagrant ssh -c "rm /home/vagrant/.rbenv/cache/*"'
+  sh 'vagrant reload --provision'
 
   unless provider == 'lxc'
     # FROM: https://gist.github.com/3775253
