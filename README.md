@@ -16,7 +16,6 @@ Features:
 ## Building the box
 
 ```terminal
-gem install librarian-puppet
 rake rebuild
 ```
 

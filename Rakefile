@@ -1,9 +1,6 @@
 desc 'Recreates .box file'
 task :rebuild do
-  unless Dir.exists?('./modules')
-    sh 'librarian-puppet install'
-  end
-
+  # TODO: Switch to bindler
   unless `vagrant plugin list`.include? 'vagrant-cachier'
     sh 'vagrant plugin install vagrant-cachier'
   end
