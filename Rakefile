@@ -26,6 +26,6 @@ task :rebuild do
 
   provider = provider ? "#{provider}-" : ''
   require 'time'
-  box_file_name = "#{provider}quantal64-rails-#{Date.today}.box"
+  box_file_name = "#{provider}raring64-rails-#{Date.today}.box"
   sh "rm -f #{box_file_name} && vagrant package --output #{box_file_name}"
 end
